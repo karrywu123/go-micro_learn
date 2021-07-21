@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package services;
+
+//引入的包
+option go_package = "./Services";
+
+import "Models.proto";
+
+message ProdsRequest{
+  int32 size=1;
+}
+
+message ProdListResponse {
+   repeated ProdModel data=1;
+}
+
+service ProdService{
+  rpc GetProdsList(ProdsRequest) returns (ProdListResponse);
+}
