@@ -1,4 +1,4 @@
-# go-micro_learn
+# go-micro_learn。注册工具用的是 consul
 
 exapmle1 写的是go-micro V3  的服务端和客户段的 例子
 
