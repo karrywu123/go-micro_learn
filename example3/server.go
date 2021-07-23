@@ -6,8 +6,8 @@ import (
 	"github.com/asim/go-micro/v3"
 	"github.com/asim/go-micro/v3/logger"
 	"github.com/asim/go-micro/v3/registry"
-	"go_Multi_learn/go-micro-prodservice/protos"
-	"go_Multi_learn/go-micro-prodservice/protos/Services"
+	"go-micro_learn/example3/protos"
+	"go-micro_learn/example3/protos/Services"
 )
 
 
