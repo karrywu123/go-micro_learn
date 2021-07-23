@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package services;
+//引入的包
+option go_package = "./Services";
+
+//商品模型
+
+message ProdModel {
+  int32 prodID = 1;
+  string ProdName=2;
+}
