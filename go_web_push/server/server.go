@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/gorilla/websocket"
-	"go-micro_learn/go_web_push/server/connection"
+	"go_Multi_learn/go_web_push/server/connection"
+	"html/template"
 	"net/http"
 	"time"
 )
@@ -11,14 +12,13 @@ import (
 var(
 	upgrader = websocket.Upgrader{
 		//握手的过程中跨域问题 要允许跨域
-
 		CheckOrigin: func(r *http.Request) bool {
 			return true
 		},
 
 	}
 )
-
+type MyHttpHandler struct{}
 func wsHandler(res http.ResponseWriter,rsp *http.Request){
 	var(
 		wsConn *websocket.Conn
@@ -46,7 +46,7 @@ func wsHandler(res http.ResponseWriter,rsp *http.Request){
 			}
 			time.Sleep(time.Second*1)
 		}
-ERR:
+    ERR:
 	conn.Close()
 	}()
 
@@ -63,9 +63,15 @@ ERR:
 
 }
 
+func indexHandler(w http.ResponseWriter,rsp *http.Request){
+	t:=template.Must(template.ParseFiles("./go_web_push/client.html"))
+	t.Execute(w, time.Now().Format("2006-01-02 15:04:05"))
+}
 func main(){
+
 	http.HandleFunc("/ws",wsHandler)
-	http.ListenAndServe(":8088",nil)
+	http.HandleFunc("/index",indexHandler)
+	http.ListenAndServe(":8088", nil)
 }
 
 
