@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gorilla/websocket"
-	"go_Multi_learn/go_web_push/server/connection"
+	"go-micro_learn/go_web_push/server/connection"
 	"net/http"
 	"time"
 )
